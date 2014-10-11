@@ -4,8 +4,8 @@ A humble wikipedia clone
 
 ## Contributing
 
-1. Clone Fork
-2. Setup your postgres connection
+1. Fork
+2. Setup DB (rake db:create)
 3. Create feature branch
 4. Hack away
 5. Commit
