@@ -45,3 +45,5 @@ gem 'rspec-rails'
 # Databases
 # Developemnt
 gem 'sqlite3'
+
+gem 'devise'
