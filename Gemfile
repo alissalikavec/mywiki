@@ -47,3 +47,7 @@ gem 'rspec-rails'
 gem 'sqlite3'
 
 gem 'devise'
+
+
+# Faking stuff/Seeding Databases
+gem 'faker'
