@@ -5,5 +5,5 @@ class Wiki < ActiveRecord::Base
   validates_presence_of :title, :content, :user_id
 
   #Relationships
-  #belongs_to :user  - waiting for devise to be installed before turning this on.
+  belongs_to :user
 end
