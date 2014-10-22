@@ -1,6 +1,9 @@
 <h2>Wikis</h2>
 
 <% @wikis.each do |wiki| %>
-  <h3><%= wiki.title %></h3>
-  <p><%= wiki.content %></p>
+  <h3><%= link_to wiki.title, wiki %></h3>
+  <p>
+    <%= wiki.content %> - 
+    <%= link_to 'Destroy Wiki?', wiki, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
 <% end %>
