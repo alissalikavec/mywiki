@@ -13,6 +13,12 @@
         <ul class='no-bullet pull-right'>
           <% if current_user %>
             <li>
+              <% if current_user.is_premium? == false %>
+                <%= link_to("Upgrade to Premium | ", new_charge_path) %>
+              <% else %>
+                <a href='#'>Create new private wiki</a>
+                 | 
+              <% end %>
               <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
             </li>
           <% else %>
