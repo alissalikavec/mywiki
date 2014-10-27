@@ -1,6 +1,24 @@
 <h2><%= @wiki.title %></h2>
-<p><%= @wiki.content %></p>
+<p>
+  <small><strong>Created by:</strong> 
+    <%= @wiki.user.email %> about <%= time_ago_in_words(@wiki.created_at) %> ago.
+  <% if @wiki.last_edited_by %>
+    <br />
+    <strong>Last updated by:</strong> 
+    <%= @wiki.last_edited_by %> about <%= time_ago_in_words(@wiki.updated_at) %> ago. 
+  <% end %>
+  </small>
+</p>
+<p>
+  <%= @wiki.content %> 
+  <% if @wiki.user == current_user %>
+    - 
+    <%= link_to 'Destroy wiki?', @wiki, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</p>
 
-<%= link_to 'Edit Wiki', edit_wiki_path(@wiki) %>
+<% if current_user %>
+  <%= link_to 'Edit wiki', edit_wiki_path(@wiki) %>
+<% end %>
 <br />
 <%= link_to 'Back to all wikis', wikis_path %>

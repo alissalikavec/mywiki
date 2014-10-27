@@ -1,9 +1,23 @@
 <h2>Wikis</h2>
+<h4><%= link_to("Create new wiki", new_wiki_path) %></h4>
 
 <% @wikis.each do |wiki| %>
   <h3><%= link_to wiki.title, wiki %></h3>
   <p>
-    <%= wiki.content %> - 
-    <%= link_to 'Destroy Wiki?', wiki, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <small><strong>Created by:</strong> 
+      <%= wiki.user.email %> about <%= time_ago_in_words(wiki.created_at) %> ago.
+    <% if wiki.last_edited_by %>
+      <br />
+      <strong>Last updated by:</strong> 
+      <%= wiki.last_edited_by %> about <%= time_ago_in_words(wiki.updated_at) %> ago. 
+    <% end %>
+    </small>
+  </p>
+  <p>
+    <%= wiki.content %> 
+    <% if wiki.user == current_user %>
+      - 
+      <%= link_to 'Destroy Wiki?', wiki, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
   </p>
 <% end %>
