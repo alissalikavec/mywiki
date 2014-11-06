@@ -1,6 +1,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "static_pages";
+@import url(http://fonts.googleapis.com/css?family=Lora);
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
+* {font-family: 'Lato', sans-serif; }
+
+body { 
+  padding-top: 70px;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+    font-family: 'Lora', serif;
+}
+
+div.index {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 
 .no-bullet {
   list-style: none;
